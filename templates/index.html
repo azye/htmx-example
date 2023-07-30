@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mx-auto pt-12">
+        <h1 class="text-2xl">Weather Viewer</h1>
+        <div id="app" class="flex mt-8 gap-8">
+            <div>
+                <h2 class="text-lg">Enter a State</h2>
+                <form hx-post="/zones" hx-target="#zones" class="flex gap-2 mt-2">
+                    <input type="text" name="state" placeholder="KY, NY, CA" maxlength="2" required class="p-2 text-sm rounded border border-slate-400" />
+                    <button class="bg-slate-800 rounded text-sm text-white px-4">Search</button>
+                </form>
+            </div>
+            <div id="zones"></div>
+        </div>
+    </div>
+</body>
+</html>
